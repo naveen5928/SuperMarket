@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <NavLink to="/" className="nav-brand">
-        SuperM
+        SuperMarket
       </NavLink>
       <ul>
         <li className="nav-item">

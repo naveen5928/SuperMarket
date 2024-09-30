@@ -10,7 +10,7 @@ export default function About() {
           <p>
             We started operations in 2020. We guarantee fresh produce.
             <br />
-            Save time by shopping on our app and we'll deliver the products
+            Save time by shopping on our app and we will deliver the products
             right to your home. <br />
             <em>We use Stripe to process your payment.</em>
           </p>

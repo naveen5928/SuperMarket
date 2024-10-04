@@ -6,6 +6,10 @@ import About from "./Components/About";
 import NavBar from "./Components/NavBar";
 import Products from "./Components/Products";
 import Cart from "./Components/Cart";
+import ProductDetailsInfo from "./Components/ProductDetailsInfo";
+import ProductStorage from "./Components/ProductStorage";
+import ProductNutrition from "./Components/ProductNutrition";
+import ProductDetails from "./Components/ProductDetails";
 function App() {
   return (
     <Router>
@@ -15,6 +19,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/productS/:id" element={<ProductDetails />}>
+            <Route path="" element={<ProductDetailsInfo />}></Route>
+            <Route path="nutrition" element={<ProductNutrition />}></Route>
+            <Route path="storage" element={<ProductStorage />}></Route>
+          </Route>
           <Route path="/cart" element={<Cart />}></Route>
         </Routes>
       </div>

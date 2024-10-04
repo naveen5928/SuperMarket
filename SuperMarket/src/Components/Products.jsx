@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 import { useState, useEffect } from "react";
 import FetchWrapper from "../ReUsableComponents/FetchWrappres";
 import Product from "./Product";
 
-export default function Products() {
+export default function Products(props) {
+  const { onProductAdd, onProductDelete, cart } = props;
   const [products, setProducts] = useState([]);
   const { get } = FetchWrapper("https://react-tutorial-demo.firebaseio.com/");
   useEffect(() => {
@@ -18,7 +20,15 @@ export default function Products() {
         <p>Take a look at our products</p>
         <div className="products-grid">
           {products.map((product) => {
-            return <Product key={product.id} details={product} />;
+            return (
+              <Product
+                key={product.id}
+                details={product}
+                onProductAdd={onProductAdd}
+                onProductDelete={onProductDelete}
+                cart={cart}
+              />
+            );
           })}
         </div>
       </div>

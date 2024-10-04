@@ -3,19 +3,18 @@ import React from "react";
 import Button from "../ReUsableComponents/Button";
 import { NavLink } from "react-router-dom";
 export default function Product(props) {
-  const { id, description, name, image, price, ...rest } = props.details;
-
+  const { details, onProductAdd, onProductDelete } = props;
   return (
     <>
       <div className="product">
         <div className="product-image-container">
-          <NavLink to={`${id}`}>
+          <NavLink to={`${details.id}`}>
             <img
               width="100"
               height="100"
               className="product-image"
-              src={image}
-              alt={name}
+              src={details.image}
+              alt={details.name}
             />
           </NavLink>
           <div className="product-quantity-container">
@@ -23,18 +22,27 @@ export default function Product(props) {
           </div>
         </div>
         <div className="product-info">
-          <h3>{name}</h3>
-          <p> {description}</p>
+          <h3>{details.name}</h3>
+          <p> {details.description}</p>
         </div>
         <div className="product-checkout">
           <div>
             {
-              <Button outline className="product-delete">
+              <Button
+                onClick={() => {
+                  onProductDelete(details.id);
+                }}
+                outline
+                className="product-delete">
                 x
               </Button>
             }
           </div>
-          {<Button outline>{price}</Button>}
+          {
+            <Button onClick={() => onProductAdd(details)} outline>
+              {details.price}
+            </Button>
+          }
         </div>
       </div>
     </>
